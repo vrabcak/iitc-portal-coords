@@ -2,7 +2,7 @@
 // @id             iitc-plugin-portal-coords
 // @name           IITC plugin: portal-coords
 // @category       Misc
-// @version        0.1.0
+// @version        0.2.0
 // @namespace      https://github.com/vrabcak/iitc-portal-coords
 // @description    Portal coords
 // @include        https://www.ingress.com/intel*
@@ -42,7 +42,18 @@ function wrapper(plugin_info) {
         $('#portaldetails > .imgpreview').after(html);
         $('#coords-container').click( function() {
             var selection = window.getSelection(),
-                range = document.createRange();
+                range = document.createRange(),
+                tmpEl = document.createElement("input"),
+                tmpUrl = "https://www.ingress.com/intel?ll=" + ll.lat + "," + ll.lng + "&pll=" + ll.lat + "," + ll.lng;
+       
+            // copy url portal to clipboard
+            tmpEl.setAttribute("value",tmpUrl);
+            document.body.appendChild(tmpEl);
+            tmpEl.select();
+            document.execCommand("copy");
+            document.body.removeChild(tmpEl);
+        
+            //highlight coords
             range.selectNodeContents(document.getElementById('coords-text'));
             selection.removeAllRanges();
             selection.addRange(range);
