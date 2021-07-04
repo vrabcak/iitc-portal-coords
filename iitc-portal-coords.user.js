@@ -5,10 +5,7 @@
 // @version        0.2.0
 // @namespace      https://github.com/vrabcak/iitc-portal-coords
 // @description    Portal coords
-// @include        https://www.ingress.com/intel*
-// @include        http://www.ingress.com/intel*
-// @match          https://www.ingress.com/intel*
-// @match          http://www.ingress.com/intel*
+// @match          https://intel.ingress.com/*
 // @grant          none
 // ==/UserScript==
 
